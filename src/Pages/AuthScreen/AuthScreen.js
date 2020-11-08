@@ -34,7 +34,6 @@ export default function AuthScreen() {
       })
       .then(() => {
         console.log("Done")
-        console.log(Date)
         auth().currentUser.delete();
         auth().signOut();
         history.push("/success")
