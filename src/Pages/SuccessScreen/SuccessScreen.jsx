@@ -5,6 +5,9 @@ export default function SuccessScreen() {
       window.close();
     }, [])
   return (
-    <h3>Success!</h3>
+    <>
+      <h3>Success!</h3>
+      <h4>You Can Now Close The Browser!</h4>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import GoogleIcon from "../../Assets/Images/google.svg";
 import { auth, firestore } from "../../Services/firebase";
 
 export default function AuthScreen() {
+  var dateTime = new Date();
   const history = useHistory();
   const { deviceID, userID, temp } = useParams();
   const provider = new auth.GoogleAuthProvider();
@@ -19,8 +20,10 @@ export default function AuthScreen() {
             name: user.user.displayName,
             email: user.user.email,
             phoneNumber: user.user.phoneNumber,
+            userID: userID,
             deviceID: deviceID,
             temperature: temp,
+            date: dateTime,
           })
           .catch((error) => {
             console.log(error);
@@ -31,6 +34,7 @@ export default function AuthScreen() {
       })
       .then(() => {
         console.log("Done")
+        console.log(Date)
         auth().currentUser.delete();
         auth().signOut();
         history.push("/success")
